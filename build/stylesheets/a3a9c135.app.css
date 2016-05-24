@@ -1,0 +1,92 @@
+@charset "UTF-8";
+body {
+  background-color: #18242E;
+  font-family: "\5FAE\8F6F\96C5\9ED1","\9ED1\4F53";
+  margin: 0; }
+
+.c1, .c2 {
+  position: relative;
+  margin-left: 100px;
+  display: inline-block; }
+  .c1 .sp_title, .c2 .sp_title {
+    color: #585e63;
+    font-size: 24px; }
+  .c1 h2, .c2 h2 {
+    text-align: center;
+    color: #d0d3d5;
+    font-size: 30px;
+    line-height: 1;
+    margin: 0 0;
+    font-weight: normal; }
+
+.c2 .sp_title {
+  font-size: 20px;
+  margin-left: 30px;
+  font-weight: bold; }
+
+.c2 dl {
+  font-size: 23px;
+  text-align: right; }
+  .c2 dl dt i {
+    width: 100px;
+    height: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px; }
+  .c2 dl dt.dt-1 {
+    color: #4e7ccc; }
+    .c2 dl dt.dt-1 i {
+      background-color: #4e7ccc; }
+  .c2 dl dt.dt-2 {
+    color: #36b3c3; }
+    .c2 dl dt.dt-2 i {
+      background-color: #36b3c3; }
+  .c2 dl dt.dt-3 {
+    color: #36b3c3; }
+    .c2 dl dt.dt-3 i {
+      background-color: #4ecda5; }
+#Header {
+  display: table;
+  width: 100%;
+  margin-top: 50px; }
+  #Header .item {
+    position: relative;
+    text-align: center;
+    display: table-cell; }
+    #Header .item.up-down.up span {
+      color: #f34545 !important; }
+    #Header .item.up-down.down span {
+      color: #19e747 !important; }
+    #Header .item.up-down em {
+      display: inline-block;
+      width: 16px;
+      height: 38px;
+      background: url(/app/imgs/up.png) no-repeat;
+      margin-left: 10px; }
+    #Header .item.up-down.down em {
+      background-image: url(/app/imgs/down.png);
+      margin-bottom: -10px; }
+    #Header .item span {
+      font-size: 58px;
+      color: #ffcb02;
+      position: relative; }
+      #Header .item span i {
+        position: absolute;
+        top: -10;
+        font-size: 22px;
+        color: #fff;
+        font-style: normal;
+        font-weight: normal; }
+    #Header .item p {
+      color: #c2d0db;
+      font-size: 25px;
+      margin: 15px 0; }
+    #Header .item s {
+      text-decoration: none;
+      background-color: #A3B9C9;
+      width: 1px;
+      height: 30px;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 20px; }

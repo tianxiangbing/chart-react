@@ -1,0 +1,15 @@
+{
+    "success": true,
+    "data": {
+    	"installations_android":151515,
+    	"installations_ios":2323232,
+    	"today_active_users_android":121212,
+    	"today_active_users_ios":212121,
+    	"yesterday_active_users_android":52021,
+    	"yesterday_active_users_ios":52021,
+    	"yesterday_add_users_ios":212384,
+    	"yesterday_add_users_android":432914,
+    	"today_add_users_ios":54565,
+    	"today_add_users_android":32323
+    }
+}

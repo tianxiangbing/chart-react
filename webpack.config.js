@@ -8,15 +8,23 @@ var filename= TEST?"[name]":"[chunkhash:8].[name]";
 console.log(filename)
 var extractCSS = new ExtractTextPlugin('stylesheets/'+filename+'.css');
 //var ignoreFiles = new webpack.IgnorePlugin(new RegExp("^(jquery|react|react-dom)$"));
-module.exports = {
-    //devtool: "source-map",
+
+//动态创建html
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var htmlPlugin = new HtmlWebpackPlugin({
+    title:"my APP",
+    filename: '../index-publish.html',
+    template:"template.html"
+});
+
+var config ={
     entry: {
         app: ["./app/app.jsx"],
-        vendor:["react","react-dom"]
+        vendor:["react","react-dom",'whatwg-fetch']
     },
     output: {
         path: path.resolve(__dirname, "build"),
-        publicPath: "/assets/",
+        publicPath: "/build/",
         filename: filename+".js"
     },
     resolve: {
@@ -35,6 +43,9 @@ module.exports = {
             {
                 test:/\.scss$/,
                 loader:extractCSS.extract('style-loader','css?sourceMap!sass')
+            },
+            {
+                test:/\.html$/,loader:"html-loader"
             }
         ]
     },
@@ -42,5 +53,12 @@ module.exports = {
         extractCSS,
         //ignoreFiles
         new webpack.optimize.CommonsChunkPlugin("vendor", "base.js")
+        ,htmlPlugin
     ]
 };
+if(process.env.NODE_ENV == "test"){
+    config.devtool= "source-map";
+    config.output.publicPath="/assets/";
+}
+console.log(config)
+module.exports = config

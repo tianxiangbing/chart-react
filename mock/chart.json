@@ -1,41 +1,47 @@
 {
-	"success":true,
-	"data":[{
-		"today_active_users_android": 114661,
-		"today_add_users_android": 6565,
-		"today_active_users_ios": 113093,
-		"today_add_users_ios": 5660,
-		"date": "2016-04-25",
-		},{
-		"today_active_users_android": 114661,
-		"today_add_users_android": 6565,
-		"today_active_users_ios": 113093,
-		"today_add_users_ios": 5660,
-		"date": "2016-04-25",
-		}{
-		"today_active_users_android": 114661,
-		"today_add_users_android": 6565,
-		"today_active_users_ios": 113093,
-		"today_add_users_ios": 5660,
-		"date": "2016-04-25",
-		}{
-		"today_active_users_android": 114661,
-		"today_add_users_android": 6565,
-		"today_active_users_ios": 113093,
-		"today_add_users_ios": 5660,
-		"date": "2016-04-25",
-		}{
-		"today_active_users_android": 114661,
-		"today_add_users_android": 6565,
-		"today_active_users_ios": 113093,
-		"today_add_users_ios": 5660,
-		"date": "2016-04-25",
-		}{
-		"today_active_users_android": 114661,
-		"today_add_users_android": 6565,
-		"today_active_users_ios": 113093,
-		"today_add_users_ios": 5660,
-		"date": "2016-04-25",
-		}
-	]
+    "success": true,
+    "data": [
+        {
+            "today_active_users_android": 114661,
+            "today_add_users_android": 46565,
+            "today_active_users_ios": 11093,
+            "today_add_users_ios": 12345,
+            "date": "2016-03-15"
+        },
+        {
+            "today_active_users_android": 11661,
+            "today_add_users_android": 26565,
+            "today_active_users_ios": 11093,
+            "today_add_users_ios": 15346,
+            "date": "2016-03-16"
+        },
+        {
+            "today_active_users_android": 14661,
+            "today_add_users_android": 16565,
+            "today_active_users_ios": 53216,
+            "today_add_users_ios": 68974,
+            "date": "2016-03-17"
+        },
+        {
+            "today_active_users_android": 214661,
+            "today_add_users_android": 36565,
+            "today_active_users_ios": 113093,
+            "today_add_users_ios": 5660,
+            "date": "2016-03-18"
+        },
+        {
+            "today_active_users_android": 34661,
+            "today_add_users_android": 56565,
+            "today_active_users_ios": 42866,
+            "today_add_users_ios": 5660,
+            "date": "2016-03-19"
+        },
+        {
+            "today_active_users_android": 114661,
+            "today_add_users_android": 6565,
+            "today_active_users_ios": 113093,
+            "today_add_users_ios": 5660,
+            "date": "2016-03-20"
+        }
+    ]
 }
