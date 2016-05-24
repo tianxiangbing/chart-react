@@ -1,0 +1,57 @@
+#Header{
+	display:table;
+	width:100%;
+	margin-top:50px;
+	.item{
+		position:relative;
+		text-align:center;
+		display:table-cell;
+		&.up-down{
+			&.up span{
+				color:#f34545 !important;
+			}
+			&.down span{
+				color:#19e747 !important;
+			}
+			em{
+				display:inline-block;
+				width:16px;
+				height:38px;
+				background:url(/app/imgs/up.png) no-repeat;
+				margin-left:10px;
+			}
+			&.down em{
+				background-image:url(/app/imgs/down.png);
+				margin-bottom:-10px;
+			}
+		}
+		span{
+			font-size:58px;
+			color:#ffcb02;
+			position:relative;
+			i{
+				position:absolute;
+				top:-10;
+				font-size:22px;
+				color:#fff;
+				font-style:normal;
+				font-weight:normal;
+			}
+		}
+		p{
+			color:#c2d0db;
+			font-size:25px;
+			margin:15px 0;
+		}
+		s{
+		    text-decoration:none;
+		    background-color:#A3B9C9;
+		    width:1px;
+		    height:30px;
+		    display:block;
+		    position:absolute;
+		    right:0;
+		    top:20px;
+		}
+	}
+}
