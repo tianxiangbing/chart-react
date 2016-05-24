@@ -17,11 +17,11 @@
 				display:inline-block;
 				width:16px;
 				height:38px;
-				background:url(/app/imgs/up.png) no-repeat;
+				background:url(../imgs/up.png) no-repeat;
 				margin-left:10px;
 			}
 			&.down em{
-				background-image:url(/app/imgs/down.png);
+				background-image:url(../imgs/down.png);
 				margin-bottom:-10px;
 			}
 		}

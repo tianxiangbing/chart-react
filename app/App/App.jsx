@@ -24,6 +24,7 @@ export default class App extends React.Component {
 		},1000*10)
 	}
 	bindHeader(){
+		//fetch('/data/umeng/getdata?'+(+new Date()))
 		fetch('/mock/header.json?'+(+new Date()))
 		.then((response)=>{return response.json()})
 		.then((response)=>{
@@ -43,6 +44,7 @@ export default class App extends React.Component {
 	bindChart(){
 		var _this =this;
 		fetch('/mock/chart.json?'+(+new Date()))
+		//fetch('/data/umeng/get30data?'+(+new Date()))
 			.then(function(response) {
 				return response.json()
 			}).then(function(json) {

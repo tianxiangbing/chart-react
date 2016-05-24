@@ -47,7 +47,8 @@ var config ={
             },
             {
                 test:/\.html$/,loader:"html-loader"
-            }
+            },
+            { test: /\.png$/, loader: "file-loader?name=[hash:8].[name].[ext]" }
         ]
     },
     plugins: [
@@ -59,7 +60,7 @@ var config ={
 };
 if(process.env.NODE_ENV == "test"){
     config.devtool= "source-map";
-    config.output.publicPath="/assets/";
+    config.output.publicPath="/";
 }
 console.log(config)
 module.exports = config

@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "set NODE_ENV=test&& node server",
-    "build":"set NODE_ENV=production&& webpack -p"
+    "build": "set NODE_ENV=production&& webpack -p"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.16.1",
     "node-sass": "^3.5.3",
