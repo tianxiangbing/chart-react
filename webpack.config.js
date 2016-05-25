@@ -24,8 +24,8 @@ var config ={
     },
     output: {
         path: path.resolve(__dirname, "build"),
-        /*publicPath: "/data/assets/build/",*/
-        publicPath: "/build/",
+        publicPath: "/data/assets/build/",
+        //publicPath: "build/",
         filename: filename+".js"
     },
     resolve: {

@@ -1,13 +1,13 @@
 import React from 'react';
-
 export default class Chart extends React.Component {
 	constructor(props){
 		super(props);
-		this.state= {};
+		this.chart = null;
+		this.oldRect = {w:this.props.width,h:this.props.height};
 	}
 	componentDidUpdate(newValue,oldValue){
-		console.log(newValue)
 		if(JSON.stringify(this.props.list)==JSON.stringify(newValue.list) || this.props.list==null||this.props.list.length==0){
+			this.chart&& this.chart.changeSize(newValue.width,newValue.height)
 			return;
 		}
 		//let data =this.props.list;
@@ -44,7 +44,7 @@ export default class Chart extends React.Component {
 		var Stat = G2.Stat;
 		var Frame = G2.Frame;
 		var frame = new Frame(data);
-		var chart = new G2.Chart({
+		this.chart = new G2.Chart({
 			//id: 'c1',
 			container: this.refs.chart,
 			width: this.props.width,
@@ -61,6 +61,9 @@ export default class Chart extends React.Component {
 			gridAlign: 'start',
 			tickCount:5
 		});*/
+		let lastArr = data.slice(-3).map((item)=>{
+			return item.tem;
+		});
 		var defs = {
 			'month': {
 				formatter: function(time) {
@@ -69,9 +72,9 @@ export default class Chart extends React.Component {
 					if (day == now.getDate() - 1 && now.getMonth() == date.getMonth()) {
 						return "昨天"
 					}
-					if (day == 1) {
+					//if (day == 1) {
 						return date.getMonth() + "月" + day + "日";
-					}
+					//}
 					return day;
 				},
 				alias: " "
@@ -89,20 +92,41 @@ export default class Chart extends React.Component {
 			'city': {
 				type: 'cat',
 				alias: "昨天",
-				values: ['1321454', '564562', '198929']
+				values: lastArr
 			}
 		};
 		//console.log(getPosition({xDim: value, yDim: value}))
-		chart.source(frame, defs);
+		this.chart.source(frame, defs);
 		// area 支持的图形类型：'area','smooth','line','dotLine','smoothLine','dotSmoothLine'
-		chart.area().position('month*tem').color('city').shape('smooth');
+		this.chart.area().position('month*tem').color('city').shape('smooth');
 		/*chart.guide().text([50, 50], '越差的钻石切割工艺分散', {
 			'text-anchor': 'middle'
 		});*/
 
-		chart.render();
+		this.chart.render();
+		/*this.setSize()*/
 	}
 	componentDidMount(){
+		/*window.addEventListener('resize',function(){
+			//var rect={h1:730,w1:930,h2:480,w2:650};
+			this.setSize();
+		}.bind(this)
+		);*/
+		setInterval(()=>{
+			this.setSize();
+		},500);
+	}
+	setSize(){
+		var oldwidth = 1920;
+		var newWidth = document.body.clientWidth;
+		var nw = parseInt(newWidth/(oldwidth/this.props.sw));
+		var nh = parseInt( newWidth/(oldwidth/this.props.sh));
+		//this.setState({'w':nw,'h':nh});
+		if(nw !== this.oldRect.w){
+			this.oldRect= {w:nw,h:nh}
+			this.props.parentCallback(this.props.mykey,{w:nw,h:nh});
+			this.chart&&this.chart.changeSize(parseInt(nw),parseInt(nh))
+		}
 	}
 	
 	render(){

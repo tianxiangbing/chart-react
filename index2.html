@@ -5,26 +5,63 @@
     <title>平滑的区域图</title>
     <!--如果不需要jquery ajax 则可以不引入-->
     <!-- 引入 G2 脚本 -->
+    <script src="js/jquery.js"></script>
     <script src="js/g2.js"></script>
     <script>
       G2.Global.setTheme('dark');
     </script>
+    <style>
+    html{width:100%;height:100%;}
+      body{width:100%;overflow:hidden;
+        height:100%;}
+      .body{width:100%;
+        height:100%;white-space: nowrap;
+        position:relative;
+        left:0;
+      }
+      .iframe{
+        display:inline-block;
+        width:100%;
+        height:100%;
+      }
+      iframe{border:none;margin:0;padding:0;overflow: hidden;width:100%;height:100%;}
+    </style>
+    <script>
+    setInterval(function(){
+      var left = parseInt($('.body').css('left'));
+      if(left<0){
+        left=0;
+      }else{
+        left=-$(window).width()
+      }
+      $('.body').animate({
+        left:left
+      })
+    },6000);
+    </script>
   </head>
   <body style="background-color:#18242E">
-    <div id="c1"></div>
-    <script>
-      var data = [{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-25","tem":113093,"city":"ios"},{"month":"2016-04-25","tem":227754,"city":"sum"},{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-25","tem":113093,"city":"ios"},{"month":"2016-04-25","tem":227754,"city":"sum"},{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-25","tem":113093,"city":"ios"},{"month":"2016-04-25","tem":227754,"city":"sum"},{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-25","tem":113093,"city":"ios"},{"month":"2016-04-25","tem":227754,"city":"sum"},{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-25","tem":113093,"city":"ios"},{"month":"2016-04-25","tem":227754,"city":"sum"},{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-25","tem":113093,"city":"ios"},{"month":"2016-04-25","tem":227754,"city":"sum"}];
-      var Stat = G2.Stat;
-      var chart = new G2.Chart({
-        id: 'c1',
-        width: 1000,
-        height: 500
-      });
-      chart.source(data);
-      //chart.axis('tem',{title: null,labels: null});
-      // area 支持的图形类型：'area','smooth','line','dotLine','smoothLine','dotSmoothLine'
-      chart.area().position('month*tem').color('city').shape('smooth');
-      chart.render();
-    </script>
+    <div class="body">
+      <div class="iframe">
+        <div id="c1"></div>
+        <script>
+          var data = [{"month":"2016-04-25","tem":114661,"city":"android"},{"month":"2016-04-27","tem":114661,"city":"android"}];
+          var Stat = G2.Stat;
+          var chart = new G2.Chart({
+            id: 'c1',
+            width: 1000,
+            height: 500
+          });
+          chart.source(data);
+          //chart.axis('tem',{title: null,labels: null});
+          // area 支持的图形类型：'area','smooth','line','dotLine','smoothLine','dotSmoothLine'
+          chart.area().position('month*tem').color('city').shape('smooth');
+          chart.render();
+        </script>
+        </div>
+      <div class="iframe">
+        <iframe src="index.html"></iframe>
+      </div>
+    </div>
   </body>
 </html>

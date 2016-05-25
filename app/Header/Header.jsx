@@ -40,7 +40,6 @@ export default class Header extends React.Component {
 		return (
 			<div id="Header">
 				<div className="item"><span>{this.props.info&&this.props.info.installationsTotalUsers}</span><s></s><p>激活总数</p></div>
-				<div className="item"><span>17,268</span><s></s><p>月活总量（往前30天）</p></div>
 				{this.renderDayActive()}
 				{this.renderDayAdd()}
 			</div>

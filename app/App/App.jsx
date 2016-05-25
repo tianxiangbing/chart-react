@@ -8,7 +8,7 @@ import 'whatwg-fetch';
 export default class App extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {list:null};
+		this.state = {list:null,rect:{c1:{w:930,h:730},c2:{w:650,h:480}}};
 	}
 	componentDidMount(){
 		this.bindChart();
@@ -21,11 +21,12 @@ export default class App extends React.Component {
 				now = newNow;
 				this.bindChart();
 			}
-		},1000*10)
+		},1000*10);
+
 	}
 	bindHeader(){
-		//fetch('/data/umeng/getdata?'+(+new Date()))
-		fetch('/mock/header.json?'+(+new Date()))
+		fetch(CONFIG.header+"?t="+(+new Date()))
+		//fetch('/mock/header.json?'+(+new Date()))
 		.then((response)=>{return response.json()})
 		.then((response)=>{
 			var data = response.data;
@@ -43,12 +44,12 @@ export default class App extends React.Component {
 	}
 	bindChart(){
 		var _this =this;
-		fetch('/mock/chart.json?'+(+new Date()))
-		//fetch('/data/umeng/get30data?'+(+new Date()))
+		//fetch('/mock/chart.json?'+(+new Date()))
+		fetch(CONFIG.chart+"?t="+(+new Date()))
 			.then(function(response) {
 				return response.json()
 			}).then(function(json) {
-				console.log('parsed json', json)
+				//console.log('parsed json', json)
 				//_this.setState({'list':json.data});
 				let list1= [];
 				let list2=[];
@@ -88,10 +89,14 @@ export default class App extends React.Component {
 					})
 				};
 				_this.setState({list1:list1,list2:list2});
-				console.log(list1)
+				//console.log(list1)
 			}).catch(function(ex) {
 				console.log('parsing failed', ex)
 			})
+	}
+	setRect(key,rect){
+		this.state.rect[key]=rect;
+		this.setState({'rect':this.state.rect});
 	}
 	render() {
 		return ( 
@@ -99,7 +104,7 @@ export default class App extends React.Component {
 				<Header info={this.state.header}/>
 				<div className = "c1" >
 					<div className = "sp_title"> 单位（万/人） </div> 
-					<Chart height="730" width="930" unit="w" list={this.state.list1}/>
+					<Chart sw="930" sh="730" height={this.state.rect.c1.h} width={this.state.rect.c1.w} unit="w" mykey="c1" list={this.state.list1} parentCallback={this.setRect.bind(this)}/>
 					<h2>日活趋势图</h2>
 				</div>
 				<div className="c2">
@@ -109,7 +114,7 @@ export default class App extends React.Component {
 						<dt className="dt-3">iOS<i/></dt>
 					</dl>
 					<div className = "sp_title"> 单位（人） </div> 
-					<Chart height="480" width="650" list={this.state.list2}/>
+					<Chart sw="650" sh="480" height={this.state.rect.c2.h} width={this.state.rect.c2.w} mykey="c2" list={this.state.list2} parentCallback={this.setRect.bind(this)}/>
 					<h2>新增趋势</h2>
 				</div>
 			</div>
