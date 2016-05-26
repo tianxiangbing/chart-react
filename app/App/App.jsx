@@ -8,7 +8,7 @@ import 'whatwg-fetch';
 export default class App extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {list:null,rect:{c1:{w:930,h:700},c2:{w:650,h:450}}};
+		this.state = {list:null,rect:{c1:{w:930,h:670},c2:{w:650,h:420}}};
 	}
 	componentDidMount(){
 		this.bindChart();
@@ -68,7 +68,7 @@ export default class App extends React.Component {
 					list1.push({
 						month:item.date,
 						tem:item.today_active_users_android+item.today_active_users_ios,
-						city:"sum"
+						city:"总和"
 					})
 
 					//list2
@@ -85,7 +85,7 @@ export default class App extends React.Component {
 					list2.push({
 						month:item.date,
 						tem:item.today_add_users_android+item.today_add_users_ios,
-						city:"sum"
+						city:"总和"
 					})
 				};
 				_this.setState({list1:list1,list2:list2});
@@ -104,7 +104,7 @@ export default class App extends React.Component {
 				<Header info={this.state.header}/>
 				<div className = "c1" >
 					<div className = "sp_title"> 单位（万/人） </div> 
-					<Chart sw="930" sh="730" height={this.state.rect.c1.h} width={this.state.rect.c1.w} unit="w" mykey="c1" list={this.state.list1} parentCallback={this.setRect.bind(this)}/>
+					<Chart sw="900" sh="670" height={this.state.rect.c1.h} width={this.state.rect.c1.w} unit="w" mykey="c1" list={this.state.list1} parentCallback={this.setRect.bind(this)}/>
 					<h2>日活趋势图</h2>
 				</div>
 				<div className="c2">
@@ -114,7 +114,7 @@ export default class App extends React.Component {
 						<dt className="dt-3">iOS<i/></dt>
 					</dl>
 					<div className = "sp_title"> 单位（人） </div> 
-					<Chart sw="650" sh="480" height={this.state.rect.c2.h} width={this.state.rect.c2.w} mykey="c2" list={this.state.list2} parentCallback={this.setRect.bind(this)}/>
+					<Chart sw="730" sh="500" height={this.state.rect.c2.h} width={this.state.rect.c2.w} mykey="c2" list={this.state.list2} parentCallback={this.setRect.bind(this)}/>
 					<h2>新增趋势</h2>
 				</div>
 			</div>

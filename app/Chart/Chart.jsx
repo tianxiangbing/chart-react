@@ -92,7 +92,7 @@ export default class Chart extends React.Component {
 			'city': {
 				type: 'cat',
 				alias: " ",
-				values: ["android",'ios','sum']
+				values: ['总和',"android",'ios']
 			}
 		};
 		//console.log(getPosition({xDim: value, yDim: value}))

@@ -10,12 +10,12 @@ export default class Header extends React.Component {
 			if(this.props.info.diff_active>0){
 				return (
 					<div className="item up-down up">
-						<span>{this.props.info.today_iosAdrTotal.toLocaleString()}<em></em><i>+{this.props.info.diff_active.toLocaleString()}</i></span><s></s><p>日活总数VS昨天同时段</p>
+						<span>{this.props.info.today_iosAdrTotal.toLocaleString()}<em></em><i>+{this.props.info.diff_active.toLocaleString()}</i></span><s></s><p>日活总数 VS 昨天同时段</p>
 					</div>)
 			}else{
 				return ( 
 					<div className="item up-down down">
-						<span>{this.props.info.today_iosAdrTotal.toLocaleString()}<em></em><i>{this.props.info.diff_active.toLocaleString()}</i></span><s></s><p>日活总数VS昨天同时段</p>
+						<span>{this.props.info.today_iosAdrTotal.toLocaleString()}<em></em><i>{this.props.info.diff_active.toLocaleString()}</i></span><s></s><p>日活总数 VS 昨天同时段</p>
 					</div>)
 			}
 		}
@@ -25,13 +25,13 @@ export default class Header extends React.Component {
 			if(this.props.info.diff_add>0){
 				return (
 					<div className="item up-down up">
-						<span>{this.props.info.today_iosAdrAddTotal.toLocaleString()}<em></em><i>+{this.props.info.diff_add.toLocaleString()}</i></span><s></s><p>日新增总量VS昨天同时段</p>
+						<span>{this.props.info.today_iosAdrAddTotal.toLocaleString()}<em></em><i>+{this.props.info.diff_add.toLocaleString()}</i></span><s></s><p>日新增总量 VS 昨天同时段</p>
 					</div>
 					)
 			}else{
 				return (
 					<div className="item up-down down">
-						<span>{this.props.info.today_iosAdrAddTotal.toLocaleString()}<em></em><i>{this.props.info.diff_add.toLocaleString()}</i></span><s></s><p>日新增总量VS昨天同时段</p>
+						<span>{this.props.info.today_iosAdrAddTotal.toLocaleString()}<em></em><i>{this.props.info.diff_add.toLocaleString()}</i></span><s></s><p>日新增总量 VS 昨天同时段</p>
 					</div>)
 			}
 		}
