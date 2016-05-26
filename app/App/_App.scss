@@ -16,7 +16,7 @@ body{
 		color:#d0d3d5;
 		font-size:30px;
 		line-height:1;
-		margin:0 0;
+		margin:0;
 		font-weight:normal;
 	}
 }
@@ -25,14 +25,13 @@ body{
 	.sp_title{
 		font-size:20px;
 		margin-left:30px;
-		font-weight:bold;
 	}
 	dl{
 		font-size:23px;
 		text-align:right;
 		dt{
 			i{
-				width:100px;
+				width:50px;
 				height:3px;
 				display:inline-block;
 				vertical-align:middle;

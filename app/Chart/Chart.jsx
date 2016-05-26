@@ -73,7 +73,7 @@ export default class Chart extends React.Component {
 						return "昨天"
 					}
 					//if (day == 1) {
-						return (date.getMonth()+1) + "月" + day + "日";
+						return (date.getMonth()+1) + "/" + ("0"+day).slice(-2) + "";
 					//}
 					return day;
 				},
@@ -91,8 +91,8 @@ export default class Chart extends React.Component {
 			},
 			'city': {
 				type: 'cat',
-				alias: "昨天",
-				values: lastArr
+				alias: " ",
+				values: ["android",'ios','sum']
 			}
 		};
 		//console.log(getPosition({xDim: value, yDim: value}))

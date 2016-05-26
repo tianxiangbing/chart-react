@@ -8,7 +8,7 @@ import 'whatwg-fetch';
 export default class App extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = {list:null,rect:{c1:{w:930,h:730},c2:{w:650,h:480}}};
+		this.state = {list:null,rect:{c1:{w:930,h:700},c2:{w:650,h:450}}};
 	}
 	componentDidMount(){
 		this.bindChart();
