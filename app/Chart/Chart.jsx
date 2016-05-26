@@ -73,7 +73,7 @@ export default class Chart extends React.Component {
 						return "昨天"
 					}
 					//if (day == 1) {
-						return date.getMonth() + "月" + day + "日";
+						return (date.getMonth()+1) + "月" + day + "日";
 					//}
 					return day;
 				},
