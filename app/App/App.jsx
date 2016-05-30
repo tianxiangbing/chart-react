@@ -22,7 +22,7 @@ export default class App extends React.Component {
 				this.bindChart();
 			}
 		},1000*10);
-
+	
 	}
 	bindHeader(){
 		fetch(CONFIG.header+"?t="+(+new Date()))
@@ -68,7 +68,7 @@ export default class App extends React.Component {
 					list1.push({
 						month:item.date,
 						tem:item.today_active_users_android+item.today_active_users_ios,
-						city:"总和"
+						city:"sum"
 					})
 
 					//list2
@@ -85,7 +85,7 @@ export default class App extends React.Component {
 					list2.push({
 						month:item.date,
 						tem:item.today_add_users_android+item.today_add_users_ios,
-						city:"总和"
+						city:"sum"
 					})
 				};
 				_this.setState({list1:list1,list2:list2});
