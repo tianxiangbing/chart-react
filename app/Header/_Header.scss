@@ -19,9 +19,11 @@
 				height:38px;
 				background:url(imgs/up.png) no-repeat;
 				margin-left:10px;
+				background-size:100%;
 			}
 			&.down em{
 				background-image:url(imgs/down.png);
+				background-size:100%;
 				margin-bottom:-10px;
 			}
 		}

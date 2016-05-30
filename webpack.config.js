@@ -52,6 +52,11 @@ var config ={
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
         extractCSS,
         //ignoreFiles
         new webpack.optimize.CommonsChunkPlugin("vendor", "base.js")

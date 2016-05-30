@@ -14,12 +14,70 @@
     background-color:#18242E;
   }
     </style>
+    <style>
+    html{width:100%;height:100%;}
+      body{width:100%;overflow:hidden;
+        height:100%;}
+      .body{width:100%;
+        height:100%;white-space: nowrap;
+        position:relative;
+        left:0;
+        font-size:0;
+      }
+      .iframe{
+        display:inline-block;
+        width:100%;
+        height:100%;
+        padding:0;margin:0;
+        font-size:36px;
+      }
+      .if2{
+        background-color:#18242E;
+      }
+      .fz-36px{
+        font-size:36px;
+      }
+      .step-list{
+        position:fixed;
+        bottom:20px;
+        width:100%;
+        height:20px;
+        text-align: center;
+      }
+      .step-list i{
+        display:inline-block;
+        font-size:0;
+        margin:0 15px;
+        border-radius: 10px;
+        width:15px;
+        height:15px;
+        background-color:#fff;
+        opacity: .6;
+        cursor:pointer;
+      }
+      .step-list i.focus{
+        opacity: .9;
+      }
+      iframe{border:none;margin:0;padding:0;overflow: hidden;width:100%;height:100%;}
+    </style>
     <script>
       G2.Global.setTheme('dark');
     </script>
   </head>
   <body>
+    <div class="body">
+      <div class="iframe">
     <div id="c1"></div>
+
+    </div>
+  <div class="iframe if2">
+    <iframe src="index.html" scrolling="no"></iframe>
+  </div>
+</div>
+  <div class="step-list">
+    <i class="focus"></i>
+    <i class=""></i>
+  </div>
     <script>
       var data = [
         {"month":0,"tem":20,"city":"tokyo"},
@@ -63,6 +121,39 @@
       // area 支持的图形类型：'area','smooth','line','dotLine','smoothLine','dotSmoothLine'
       chart.area().position('month*tem').color('city').shape('smooth');
       chart.render();
+    </script>
+
+     <script>
+    var timer;
+    function animate(){
+        timer = setInterval(function(){
+          var left = parseInt($('.body').css('left'));
+          if(left<0){
+            left=0;
+            $('.step-list i').eq(0).addClass('focus').siblings().removeClass('focus');
+          }else{
+            $('.step-list i').eq(1).addClass('focus').siblings().removeClass('focus');
+            left=-$(window).width()
+          }
+          $('.body').animate({
+            left:left
+          })
+        },20000);
+    }
+    animate();
+    $('.step-list i').click(function(){
+        timer && window.clearInterval(timer);
+        $(this).addClass('focus').siblings().removeClass('focus');
+        left = -$(window).width()*$(this).index()
+        $('.body').animate({
+          left:left
+        });
+        animate();
+    });
+    $(document).mousemove(function(){
+        timer && window.clearInterval(timer);
+        animate();
+    })
     </script>
   </body>
 </html>
